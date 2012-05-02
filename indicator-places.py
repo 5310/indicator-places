@@ -20,7 +20,8 @@ class IndicatorPlaces:
     BOOKMARKS_PATH = os.getenv('HOME') + '/.gtk-bookmarks'
 
     def __init__(self):
-        self.ind = appindicator.Indicator("places", "nautilus", appindicator.CATEGORY_APPLICATION_STATUS)
+	resource_folder = os.path.dirname(os.path.realpath(__file__))
+        self.ind = appindicator.Indicator("places", resource_folder+"/indicator-places.svg", appindicator.CATEGORY_APPLICATION_STATUS)
         self.ind.set_status(appindicator.STATUS_ACTIVE)        
 
         self.update_menu()
